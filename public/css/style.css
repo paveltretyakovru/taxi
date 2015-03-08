@@ -1,0 +1,661 @@
+
+
+
+body,html {
+	height: 100%;
+	font-family: 'latoregular';
+}
+
+header .row div {
+	height: 100px;
+} 
+
+a {color: #f7b721; text-decoration: none;}
+a:hover {text-decoration: underline; color: #f7b721;}
+a:visited {text-decoration: none; color: #f7b721;}
+a:active {text-decoration: none; color: #f7b721;}
+
+
+
+H1{
+	font-family: 'latoregular';
+	font-size: 16px;
+	color: #4a4a4a;
+	text-transform: uppercase;
+	padding: 0px 0 18px 0;
+	margin: 0;
+	font-weight: normal;
+}
+
+@font-face {
+    font-family: 'latoregular';
+    src: url('fonts/lato-regular.eot');
+    src: url('fonts/lato-regular.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lato-regular.woff2') format('woff2'),
+         url('fonts/lato-regular.woff') format('woff'),
+         url('fonts/lato-regular.ttf') format('truetype'),
+         url('fonts/lato-regular.svg#latoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'latobold';
+    src: url('fonts/lato-bold.eot');
+    src: url('fonts/lato-bold.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lato-bold.woff2') format('woff2'),
+         url('fonts/lato-bold.woff') format('woff'),
+         url('fonts/lato-bold.ttf') format('truetype'),
+         url('fonts/lato-bold.svg#latobold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.logo {
+	display: inline-block;
+	width: 158px;
+	height: 80px;
+	margin-top: 10px;
+	background-image: url(../img/logo.jpg);
+	background-size: contain;
+}
+
+.slide {
+	display: table;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: url(../img/slide.jpg) no-repeat center center scroll;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+}
+
+.slide2 {
+	height: 400px;
+}
+
+
+.text-vertical-center {
+	display: table-cell;
+	text-align: center;
+	vertical-align: top;
+	padding-top: 150px;
+}
+
+.text-vertical-center-2 {
+	vertical-align: middle;
+	padding: 0;	
+}
+
+.text-vertical-center span.big-t {
+	display: table;
+	width: 100%;
+	font-family: 'latoregular';
+	font-size: 36px;
+	color: #fff;
+	text-transform: uppercase;
+	padding: 10px 0;
+}
+
+.text-vertical-center span.big-t b {
+	font-weight: normal;
+}
+
+
+/* Select
+================================================== */
+
+div.cs-skin-border {
+	background: transparent;
+	font-family: 'latobold';
+	font-size: 22px;
+	max-width: 400px;
+}
+
+
+.cs-skin-border > span {
+	border: 4px solid #000;
+	border-color: inherit;
+	-webkit-transition: background 0.2s, border-color 0.2s;
+	transition: background 0.2s, border-color 0.2s;
+}
+
+.cs-skin-border > span::after,
+.cs-skin-border .cs-selected span::after {
+	font-family: 'icomoon';
+	content: '\e000';
+}
+
+.cs-skin-border ul span::after {
+	content: '';
+	opacity: 0;
+}
+
+.cs-skin-border .cs-selected span::after {
+	content: '\e00e';
+	color: #ddd9c9;
+	font-size: 16px;
+	opacity: 1;
+	-webkit-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+}
+
+.cs-skin-border.cs-active > span {
+	background: #fff;
+	border-color: #fff;
+	color: #000;
+}
+
+.cs-skin-border .cs-options {
+	color: #888;
+	font-size: 0.75em;
+	opacity: 0;
+	-webkit-transition: opacity 0.2s, visibility 0s 0.2s;
+	transition: opacity 0.2s, visibility 0s 0.2s;
+}
+
+.cs-skin-border.cs-active .cs-options {
+	opacity: 1;
+	-webkit-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+}
+
+.cs-skin-border ul span {
+	padding: 10px 15px;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.cs-skin-border .cs-options li span:hover,
+.cs-skin-border li.cs-focus span {
+	background: #fafafa;
+	color: #f7b721;
+}
+
+
+
+/* Default custom select styles */
+div.cs-select {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	text-align: left;
+	z-index: 100;
+	width: 100%;
+	max-width: 400px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+div.cs-select:focus {
+	outline: none; /* For better accessibility add a style for this in your skin */
+}
+
+.cs-select select {
+	display: none;
+}
+
+.cs-select span {
+	display: block;
+	position: relative;
+	cursor: pointer;
+	padding: 12px 20px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Placeholder and selected option */
+.cs-select > span {
+
+}
+
+.cs-select > span::after,
+.cs-select .cs-selected span::after {
+	speak: none;
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.cs-select > span::after {
+	content: '\25BE';
+	right: 1em;
+}
+
+.cs-select .cs-selected span::after {
+	content: '\2713';
+	margin-left: 1em;
+}
+
+.cs-select.cs-active > span::after {
+	-webkit-transform: translateY(-50%) rotate(180deg);
+	transform: translateY(-50%) rotate(180deg);
+}
+
+div.cs-active {
+	z-index: 200;
+}
+
+/* Options */
+.cs-select .cs-options {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	background: #fff;
+	visibility: hidden;
+}
+
+.cs-select.cs-active .cs-options {
+	visibility: visible;
+}
+
+.cs-select ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.cs-select ul span {
+	font-size: 16px;
+	font-weight: normal;
+}
+
+.cs-select ul li.cs-focus span {
+	background-color: #ddd;
+}
+
+/* Optgroup and optgroup label */
+.cs-select li.cs-optgroup ul {
+	padding-left: 1em;
+}
+
+.cs-select li.cs-optgroup > span {
+	cursor: default;
+}
+
+
+
+
+
+
+
+
+.pattern {
+	height: 38px;
+	background-image: url(../img/tall.jpg);
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	background-size: contain;
+	-o-background-size: contain;
+	background-repeat: repeat-x;
+}
+
+
+
+
+
+
+/* Taxi phones
+================================================== */
+
+.phones {
+	padding: 30px 0;
+	display: block;
+	position: relative;
+	overflow: hidden;
+	display: none;
+}
+
+.table-body{
+    display:table;
+    width:100%;
+    border-collapse: collapse;
+	/*border-bottom: 2px solid #eef0f0;*/
+	margin: 0;
+	padding: 0;
+	
+    }
+ .th {
+	background-color: #f7b721;
+	color: #fff;
+	font-family: "latobold";
+	font-size: 16px;
+	text-transform: uppercase;
+	text-align: center;
+	vertical-align: middle;
+    display:table-row; 
+ }
+
+.th .td {
+	border-right: 2px solid #fff; 
+	padding: 15px;
+ }
+
+.th .td:last-child  {
+	border-right: none;    
+ }
+
+ .tr{  
+     display:table-row;
+     text-align: center;
+	 vertical-align: middle;
+	 color: #4a4a4a;
+	 font-family: "latoregular";
+	 font-size: 16px;
+ }
+
+.tr:nth-of-type(even) { 
+
+	}
+
+ .td{ 
+	display: table-cell;
+	vertical-align: middle;
+	padding: 15px 0;
+
+ } 
+
+.td:hover { 
+	cursor: default;
+
+ }
+
+.km:after {
+	content: ' грн/км'
+}
+#t-time:after {
+	content: ' грн/хв'
+}
+
+#t-min:after {
+	content: ' грн'
+}
+
+
+
+/* Section info
+================================================== */
+
+.info {
+	background-color: #fafafa;
+	padding: 35px 0 45px 0;
+	display: none;
+
+}
+
+/* ========================== Accordians ==========================*/
+.accordian {
+	margin: 0;
+	font-family: 'latoregular';
+}
+
+.acc-content {
+	color: #888;
+	background: #fff;
+	border: 1px solid #f3f3f3;
+/* 	-webkit-box-shadow: 0px 1px 3px rgba(00, 00, 00, 0.1);
+	-moz-box-shadow: 0px 1px 3px rgba(00, 00, 00, 0.1);
+	box-shadow: 0px 1px 3px rgba(00, 00, 00, 0.1); */
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	cursor: pointer;
+	display: block;
+	height: 60px;
+	margin: 0 0 25px 0;
+	overflow: hidden;
+	padding: 20px; }
+
+.acc-content span {
+	display: block;
+	text-align: right;
+	color: #f7b721;
+}
+
+.acc-content span:before {
+	content: 'Вартість: '
+}
+.acc-content.is-active {
+	cursor: auto;
+	height: auto; }
+.acc-content.is-active h3 { 
+	font-weight: normal;}
+.acc-content.is-active h3:after {
+	color: #000;
+	content: "-";
+	font-family: 'latobold'; }
+.acc-content h3 {
+	color: #f7b721;
+	font-size: 16px;
+	margin: 0;
+	font-weight: normal;
+}
+.acc-content h3:after {
+	color: #888;
+	content: "+";
+	float: right;
+	font-family: 'latobold'; }
+.acc-content p {
+	padding-left: 5px;
+	font-size: 14px;;
+	line-height: 22px;
+	color: #888;}
+
+
+
+.info-taxi {
+	font-family: 'latoregular';
+	color: #888;
+	background: #fff;
+	border: 1px solid #f3f3f3;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	display: block;
+	margin: 40px 0 25px 0;
+	overflow: hidden;
+	padding: 20px; 
+}
+
+.info-taxi h3 {
+	color: #f7b721; 
+	font-weight: normal;
+	margin: 0;
+}
+
+.info-taxi p {
+	padding-left: 5px;
+	font-size: 14px;;
+	line-height: 22px;
+	color: #888;
+}
+
+/*==========  Footer  ==========*/
+
+footer {
+	background-color: #202020;
+}
+
+
+footer .row div{
+	height: 150px;
+} 
+
+footer header{
+	margin: 0 0 10px 0;
+	text-transform: uppercase;
+	color: #696969;
+} 
+
+.middle-parrent{
+	display: table;
+	position: relative;
+}
+
+.middle-child {
+	display: table-cell;
+	vertical-align: middle;
+}
+a.f-mail, a.f-tel {
+	color: #696969;
+	padding-left: 25px;
+}
+
+a.f-tel {
+	background-image: url(../img/phone-ico.png);
+	background-size: 15px 15px;
+	background-repeat: no-repeat;
+	display: inline-block;
+	margin-bottom: 5px;
+	background-position: 0px 2px;
+	padding-right: 5px;
+}
+
+a.f-mail {
+	background-image: url(../img/message-ico.png);
+	background-size: 15px 15px;
+	background-repeat: no-repeat;
+	display: inline-block;
+	background-position: 0px 2px;
+}
+
+.copyright{
+	color: #696969;
+	text-align: center;
+}
+
+.sibi-log {
+	text-align: right;
+	color: #696969;
+}
+.sibi-log h1 {
+	display: inline-block;
+	padding: 0;
+
+}
+
+.sibitri img {
+	width: 136px;
+	height: 35px;
+	margin-left: 20px;
+}
+
+
+
+/*==========  Non-Mobile First Method  ==========*/
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (max-width : 1200px) {
+
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (max-width : 992px) {
+		.th, .tr {font-size: 14px}
+
+
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (max-width : 768px) {
+		H1{font-size: 14px}
+		.logo {width: 79px; height: 40px; margin-top: 15px;}
+		header .row div {height: 70px}
+				/* Force table to not be like tables anymore */
+		.table-body {border-bottom: none;}
+		
+		.td, .tr { 
+			display: block; 
+		}
+		
+		/* Hide table headers (but not display: none;, for accessibility) */
+		.th {
+			display: none;
+		}
+
+		.td:nth-of-type(even) { 
+		background-color: #fafafa;	
+		}
+		.tr {font-size: 14px;}
+		
+		.td { 
+			/* Behave  like a "row" */
+			border: none;
+			border-bottom: 1px solid #eef0f0; 
+			position: relative;
+			padding: 6px 0;
+			padding-left: 50%; 
+		}
+		
+		.td:before { 
+			/* Now like a table header */
+			position: absolute;
+			/* Top/left values mimic padding */
+			top: 6px;
+			left: 6px;
+			width: 45%; 
+			padding-right: 10px; 
+			white-space: nowrap;
+			font-family: "latobold";
+	
+		}
+		
+		.td font {
+		margin-top: 0;
+		display: block;
+	}
+		
+		/*
+		Label the data
+		*/
+		.td:nth-of-type(1):before { content: "Назва таксі"; }
+		.td:nth-of-type(2):before { content: "Номера замовлення";}
+		.td:nth-of-type(3):before { content: "Тариф по місту"; }
+		.td:nth-of-type(4):before { content: "Тариф за містом"; }
+		.td:nth-of-type(5):before { content: "Простій"; }
+		.td:nth-of-type(6):before { content: "Посадка"; }
+		.td:nth-of-type(7):before { content: "Мінімальний"; }
+	
+		footer .row div {height: auto;} 
+		.tel-mail, .sibi-logo {text-align: center; padding: 20px 0 0 0;}
+		.copyright {padding: 15px 0;}
+		.sibi-log {text-align: center;}
+		.sibi-log h1 {display: block; margin-top: 5px; margin-bottom: 20px;}
+		.sibi-log img {margin: auto; }
+		.text-vertical-center {vertical-align: middle; padding: 0;}
+		.text-vertical-center-2 {vertical-align: middle; padding: 0;}
+		
+
+    }
+
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (max-width : 480px) {
+		div.cs-skin-border {font-size: 16px;}
+		.cs-select ul span {font-family: "latoregular"; font-size: 14px;}
+		.slide {height: 100%; padding: 0 10% 120px 10%}
+		.text-vertical-center span.big-t {font-size: 34px;}
+		.cs-select ul {height: 160px; overflow-y: scroll;}
+
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (max-width : 320px) {
+		.text-vertical-center span.big-t {font-size: 23px;}
+
+        
+    }
+
+
