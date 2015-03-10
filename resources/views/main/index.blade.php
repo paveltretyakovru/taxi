@@ -22,6 +22,10 @@
 	================================================== -->
 
   </head>
+
+  @include('modals.taxiform')
+
+
   <body>
     <header>
 		<div class="container">
@@ -32,7 +36,10 @@
     </header>
     <section class="slide" id="slide">
 				<div class="text-vertical-center">
-					<span class="big-t">Виберіть <b>Ваше</b> таксі</span>
+					<span class="big-t">
+						Виберіть <b>Ваше</b> таксі
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".add-taxi-modal">Add taxi</button>
+					</span>
 					<section>
 						<select class="cs-select cs-skin-border">
 							<option value="" disabled selected>натисніть для вибору:</option>
@@ -44,6 +51,8 @@
 					</section>
 				</div>
     </section>
+
+
     <div class="container-fluid pattern" id="pattern"></div>
     
    
@@ -137,8 +146,7 @@
     			</div>
     		</div>
     	</div>
-    </footer>
-   
+    </footer>   
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -149,6 +157,7 @@
     {!! HTML::script('js/libs/backbone-min.js') !!}
 
     {!! HTML::script('js/system/my.js') !!}
+    {!! HTML::script('js/system/system.js') !!}
 	{!! HTML::script('js/libs/classie.js') !!}	
 	{!! HTML::script('js/libs/selectFx.js') !!}
 
