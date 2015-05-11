@@ -15,6 +15,17 @@
 	<body>
 <div class="navbar navbar-default navbar-static-top">
   <div class="container">
+
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          {!! HTML::image('img/logocut.jpg' , 'Лого' , ['style' => 'height:20px']) !!}
+        </a>
+      </div>
+    </div>
+
+  <!--
+
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="icon-bar"></span>
@@ -23,6 +34,8 @@
       </button>
       <a class="navbar-brand" href="#">Taxi</a>
     </div>
+
+  -->
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li @if (!empty($homelink) and $homelink) class="active" @endif ><a href="{{ url('admin') }}">Начало</a></li>
