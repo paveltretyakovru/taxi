@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Taxi;
+use App\Addinfo;
 use App\Http\Requests\TaximaindataRequest;
 
 class TaxiController extends Controller {
@@ -38,7 +39,14 @@ class TaxiController extends Controller {
 
 	public function edit($id)
 	{
-		//
+		$taxi 		= Taxi::find($id);		
+		if($taxi){			
+			$addinfos = Addinfo::where('taxi_id' , $taxi->id)->get();
+
+			return view('admin.taxi.edit' , compact('taxi' , 'addinfos'));
+		}else{
+			return redirect()->back()->with('error' , 'Такси не найдено в базе данных');
+		}
 	}
 
 

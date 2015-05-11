@@ -15,6 +15,7 @@ class CreateAddinfosTable extends Migration {
 		Schema::create('addinfos', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->integer('taxi_id');
 			$table->string('title');
 			$table->text('description');
 			$table->string('price');
