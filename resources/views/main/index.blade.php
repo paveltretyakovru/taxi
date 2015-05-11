@@ -37,8 +37,7 @@
     <section class="slide" id="slide">
 				<div class="text-vertical-center">
 					<span class="big-t">
-						Виберіть <b>Ваше</b> таксі
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".add-taxi-modal">Add taxi</button>
+						Виберіть <b>Ваше</b> таксі						
 					</span>
 					<section>
 						<select class="cs-select cs-skin-border">

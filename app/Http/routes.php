@@ -13,6 +13,15 @@
 
 $router->get('/', 'TaxiController@index');
 
+$router->get('admin', function()
+{
+	return view('admin.index');
+});
+
+Route::group(array('namespace' => 'Admin'), function(){
+	Route::resource('admin/taxi', 'TaxiController');
+});
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
