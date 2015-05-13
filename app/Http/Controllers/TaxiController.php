@@ -18,7 +18,7 @@ class TaxiController extends Controller {
 			
 			$data_array[$key] = [
 				'taxi-name' 	=> $taxi['title'] ,
-				't-phone' 		=> $taxi['phone'] ,
+				't-phone' 		=> explode("\n",$taxi['phone']) ,
 				't-price-inT' 	=> $taxi['cityprice'] ,
 				't-price-outT'	=> $taxi['outcityprice'] ,
 				't-time'		=> $taxi['simple'] ,
@@ -39,8 +39,7 @@ class TaxiController extends Controller {
 				}
 			}else{
 				$data_array[$key]['addinfo'] = array();
-			}			
-
+			}
 		}
 
 		//dd($data_array);

@@ -8,12 +8,13 @@
 
 $(window).load(function() {
 
-	$('.acc-content').click(function () {
+	// добавил слушателя на будущие события
+	$(document).on('click' , '.acc-content' , function () {
+		console.log('test');
 		if ($(this).hasClass('is-active')) { return; };
 		$('.acc-content.is-active').removeClass('is-active');
 		$(this).addClass('is-active');
-	});
-		
+	});		
 
 	function scrTo(){
 		$('html,body').animate({
@@ -57,21 +58,47 @@ var taxi = {
 // taxi_data -  переменная инициализирована в шаблоне главной страницы
 
 var $taxi_list 	= $('#taxi-list');	// Выпадающий список с такси
-var count 		= 0;
 
-// Выводим список такси
-// Перебираем объект с данными такси
-for(var taxi in taxi_data){
-	taxi = taxi_data[taxi];
-	
-	//$taxi_list.append('<option value="' + count + '">' + taxi['taxi-name'] + '</option>');	
+$(".cs-options li").bind('click' , function(e){
+	var id 			= $('.cs-selected').attr('data-value');
+	var taxi 		= taxi_data[id];
+	var phones		= '';
+	var accordian 	= $('.accordian');
 
-	count++;
-}
+	// Чистим текущую дополнительную ифнормацию
+	accordian.html('');
 
+	// Собираем ссылки с телефонными номерами выбранного такси
+	for (var i = 0; i < taxi['t-phone'].length; i++) {
+		var phone_number = taxi['t-phone'][i];
+		phones += "<a href=\'tel:"+phone_number+"\'>"+phone_number+"</a><br/>";
+	};	
+
+	// Выводим дополнительную информацию такси
+	for (var i = 0; i < taxi['addinfo'].length; i++) {
+		if (i === 0) {
+			accordian.append('<section class="acc-content is-active"><h3>'+taxi['addinfo'][i]['title']+':</h3><p>'+taxi['addinfo'][i]['description']+'</p><span id="ac-price-2">'+taxi['addinfo'][i]['price']+' грн</span></section>');
+		}else{
+			accordian.append('<section class="acc-content"><h3>'+taxi['addinfo'][i]['title']+':</h3><p>'+taxi['addinfo'][i]['description']+'</p><span id="ac-price-2">'+taxi['addinfo'][i]['price']+' грн</span></section>');
+		};		
+	};
+
+	$('#taxi-name').text(taxi['taxi-name']);
+	$('#t-phone').html(phones);
+	$('#t-price-inT').text(taxi['t-price-inT']);
+	$('#t-price-outT').text(taxi['t-price-outT']);
+	$('#t-time').text(taxi['t-time']);
+	$('#t-getIn').text(taxi['t-getIn']);
+	$('#t-min').text(taxi['t-min']);	
+
+	$('#info-text p').text(taxi['info-text']);
+	$('#info-number p').html(taxi['info-number']);
+	scrTo();
+});
 
 /* #################################################### */
-		
+
+/*		
  $( ".cs-options li" ).click(function() {
  	var taxId= $('.cs-selected').text();
 
@@ -162,7 +189,7 @@ for(var taxi in taxi_data){
 	}
 });
 
-
+*/
 
 	
 });
