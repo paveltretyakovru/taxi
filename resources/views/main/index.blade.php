@@ -33,6 +33,7 @@
 				<div class="col-lg-12"><a href="#" class="logo"></a></div>
 			</div>
 		</div>
+		@include('admin.messages')
     </header>
     <section class="slide" id="slide">
 				<div class="text-vertical-center">
@@ -40,12 +41,20 @@
 						Виберіть <b>Ваше</b> таксі						
 					</span>
 					<section>
-						<select class="cs-select cs-skin-border">
+						<select class="cs-select cs-skin-border" id="taxi-list">
 							<option value="" disabled selected>натисніть для вибору:</option>
-							<option value="tax7">Таксі «ТТ»</option>	
+							
+							@foreach ($data_array as $key => $taxi_array)
+								<option value="{{$key}}">Таксі «{{ $taxi_array['taxi-name'] }}»</option>
+							@endforeach
+
+							<!--
+							<option value="tax7">Таксі «ТТ»</option>
 							<option value="tax2">Таксі «Джокер»</option>
 							<option value="tax8">Таксі «Шанс»</option>
 							<option value="tax9">Таксі «Vip»</option>
+							-->
+							
 						</select>
 					</section>
 				</div>
@@ -68,6 +77,19 @@
 						 <div class="td">Посадка</div>
 						 <div class="td">Мінімальний</div>
 					</div>
+					{{-- 
+					<div class="tr">
+						 <div class="td" id="title"></div>
+						 <div class="td" id="phone"></div>
+						 <div class="td km" id="cityprice"></div>
+						 <div class="td km" id="outcityprice"></div>
+						 <div class="td" id="simple"></div>
+						 <div class="td" id="landing"></div>
+						 <div class="td" id="min"></div>
+					</div>
+					 --}}
+
+					
 					<div class="tr">
 						 <div class="td" id="taxi-name"></div>
 						 <div class="td" id="t-phone"></div>
@@ -77,6 +99,7 @@
 						 <div class="td" id="t-getIn"></div>
 						 <div class="td" id="t-min"></div>
 					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -149,14 +172,15 @@
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->    
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    {!! HTML::script('js/libs/underscore-min.js') !!}
-    {!! HTML::script('js/libs/backbone-min.js') !!}
 
-    {!! HTML::script('js/system/my.js') !!}
-    {!! HTML::script('js/system/system.js') !!}
+    <script type="text/javascript">
+    	var taxi_data = {!! $data_json !!}
+    </script>
+
+    {!! HTML::script('js/system/my.js') !!} 
 	{!! HTML::script('js/libs/classie.js') !!}	
 	{!! HTML::script('js/libs/selectFx.js') !!}
 
@@ -167,5 +191,7 @@
 				} );
 			})();
 		</script>
+
+
   </body>
 </html>

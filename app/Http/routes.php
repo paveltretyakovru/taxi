@@ -1,29 +1,24 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
 $router->get('/', 'TaxiController@index');
 
-$router->get('admin', function()
-{
-	return view('admin.index');
-});
+$router->group(['middleware' => 'auth'], function() {
+	Route::group(['middleware' => 'admin'], function() {
+		Route::group(array('namespace' => 'Admin'), function(){
+			Route::resource('admin/taxi', 'TaxiController');
+			Route::resource('admin/addinfo', 'AddinfosController' , ['only' => ['store' , 'update' , 'destroy']]);
+		});
 
-Route::group(array('namespace' => 'Admin'), function(){
-	Route::resource('admin/taxi', 'TaxiController');
+		Route::get('admin', function()
+		{
+			return view('admin.index');
+		});
+	});
 });
-
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::get('home' , 'HomeController@index');

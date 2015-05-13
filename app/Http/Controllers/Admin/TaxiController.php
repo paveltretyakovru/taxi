@@ -26,7 +26,7 @@ class TaxiController extends Controller {
 
 
 	public function store(TaximaindataRequest $req){
-		$taxi = Taxi::create($req->all());
+		Taxi::create($req->all());
 		return redirect()->route('admin.taxi.index')->with('success' , 'Новое такси успешно добавлено');
 	}
 
@@ -50,16 +50,20 @@ class TaxiController extends Controller {
 	}
 
 
-	public function update($id)
+	public function update($id , TaximaindataRequest $request)
 	{
-		//
+		$taxi = Taxi::find($id);
+
+		if($taxi){		
+			$taxi->fill($request->input())->save();
+			return redirect()->back()->with('success' , 'Изменения сохранены!');
+		}
 	}
 
 	public function destroy($id)
 	{
 		$taxi = Taxi::find($id);
-		if($taxi){
-			$taxi->get();
+		if($taxi){			
 			$taxi->delete();
 			return redirect()->back()->with('success' , 'Такси успешно удалено');
 		}else{

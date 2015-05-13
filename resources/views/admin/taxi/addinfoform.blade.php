@@ -7,17 +7,17 @@
 	
 	<div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
 		{!! Form::label('description', 'Описание:') !!}
-		{!! Form::textarea('description' , null , ['class' => 'form-control' , 'style' => 'height: 50px' , 'id' =>'category-edit-parameters']) !!}
+		{!! Form::textarea('description' , null , ['class' => 'form-control' , 'style' => 'height: 70px' , 'id' =>'category-edit-parameters']) !!}
 		{!! $errors->first('description', '<span class="help-block">:message</span>') !!}
 	</div>
 
 	<div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
-		{!! Form::label('price', 'Название:') !!}
+		{!! Form::label('price', 'Цена:') !!}
 		{!! Form::text('price' , null , ['class' => 'form-control']) !!}
 		{!! $errors->first('price', '<span class="help-block">:message</span>') !!}
 	</div>
 
-	{!! Form::hidden('taxi_id' , $addinfo->id) !!}
+	{!! Form::hidden('taxi_id' , $taxi->id) !!}
 
 	<div class="form-group">
 		{!! Form::submit('Отправить' , ['class' => 'btn btn-primary']) !!}

@@ -42,7 +42,7 @@
         <li @if (!empty($taxidb) and $taxidb) class="active" @endif ><a href="{{ url('admin/taxi') }}">База такси</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#about">Выход</a></li>
+        <li><a href="{{ url('auth/logout') }}">Выход</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

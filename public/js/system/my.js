@@ -1,4 +1,4 @@
-﻿
+
 
 /*================ Accordian ================*/
 
@@ -25,8 +25,52 @@ $(window).load(function() {
 		$('.text-vertical-center').addClass('text-vertical-center-2');
 		return false;
 
-	};	
+	};
 	
+var taxi = {
+	'taxi-name' 	: '' ,
+	't-phone' 		: '' ,
+	't-price-inT' 	: '' ,
+	't-price-outT'	: '' ,
+	't-time'		: '' ,
+	't-getIn' 		: '' ,
+	't-min'			: '' ,
+	'dop-info'		: [
+		{
+			'title'			: '' ,
+			'description' 	: '' ,
+			'price'			: ''
+		} , 
+		{
+			'title'			: '' ,
+			'description' 	: '' ,
+			'price'			: ''
+		}
+	] ,	
+	'info-text' 	: '' ,
+	'info-number'	: ''
+}
+
+
+/* ################# Tretyakov Pavel #################### */
+
+// taxi_data -  переменная инициализирована в шаблоне главной страницы
+
+var $taxi_list 	= $('#taxi-list');	// Выпадающий список с такси
+var count 		= 0;
+
+// Выводим список такси
+// Перебираем объект с данными такси
+for(var taxi in taxi_data){
+	taxi = taxi_data[taxi];
+	
+	//$taxi_list.append('<option value="' + count + '">' + taxi['taxi-name'] + '</option>');	
+
+	count++;
+}
+
+
+/* #################################################### */
 		
  $( ".cs-options li" ).click(function() {
  	var taxId= $('.cs-selected').text();

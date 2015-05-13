@@ -6,4 +6,7 @@ class Addinfo extends Model {
 
 	protected $table = "addinfos";
 
+	protected $fillable = [
+		'title' , 'price' , 'description' , 'taxi_id'
+	];
 }

@@ -4,26 +4,42 @@
 @extends('admin.master')
 
 @section('content')
-	<h3>Редактирование</h3>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Редактирование</h3>
+		</div>
 	
-	{!! Form::model($taxi , ['route' => ['admin.taxi.update' , $taxi->id] , 'method' => 'PATCH']) !!}
-		@include('admin.taxi.form')
-	{!! Form::close() !!}
-
-	<hr>
-	<h4>Дополнительная информация</h4>
-	@if (count($addinfos))
-		@foreach ($addinfos as $addinfo)
-			{!! Form::model($addinfo , ['route' => ['admin.taxi.update' , $addinfo->id] , 'method' => 'PATCH']) !!}
-				@include('admin.taxi.addinfoform')
+		<div class="panel-body">
+			{!! Form::model($taxi , ['route' => ['admin.taxi.update' , $taxi->id] , 'method' => 'PATCH']) !!}
+				@include('admin.taxi.form')
 			{!! Form::close() !!}
-		@endforeach		
+		</div>
+	</div>
+		
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Дополнительная информация:</h3>
+		</div>
+	@if (count($addinfos))
+			<div class="panel-body">
+				@foreach($addinfos as $addinfo)
+					
+						{!! Form::model($addinfo , ['route' => ['admin.addinfo.update' , $addinfo->id] , 'method' => 'PATCH']) !!}
+							@include('admin.taxi.addinfoform')
+						{!! Form::close() !!}
+						{!! delete_form(['admin.addinfo.destroy' , $addinfo->id ], 'Удалить') !!}
+						<hr />					
+				@endforeach		
+			</div>
 	@else
-		У такси такси отсутствует дополнительная информация
+		<div class="panel-body">
+			У такси такси отсутствует дополнительная информация
+		<div class="panel-body">
 	@endif
+	</div>	
 
-	<h4>Добавить дополнительную информацию:</h4>
-	{!! Form::open(['route' => 'admin.taxi.store', 'method' => 'post']) !!}
+	<h3>Добавить дополнительную информацию:</h3>
+	{!! Form::open(['route' => 'admin.addinfo.store', 'method' => 'post']) !!}
 		@include('admin.taxi.addinfoform')
 	{!! Form::close() !!}
 @stop

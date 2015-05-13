@@ -11,7 +11,7 @@
 			@foreach ($taxis as $taxi)
 				<li class='list-group-item'>
 					{{$taxi->title}}
-					{!! delete_form(['admin.taxi.destroy' , $taxi->id ], 'Удалить' , 'list-right btn-xs') !!}	
+					{!! delete_form(['admin.taxi.destroy' , $taxi->id ], 'Удалить' , 'list-right btn-xs') !!}
 					<a href="{{ route('admin.taxi.edit' , $taxi->id) }}" class="btn btn-info btn list-right btn-xs">Редактировать</a>
 				</li>
 			@endforeach	
