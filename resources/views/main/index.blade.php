@@ -148,17 +148,17 @@
     <footer>
     	<div class="container">
     		<div class="row">
-    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 middle-parrent" >
+    			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 middle-parrent" >
 					<div class="middle-child tel-mail">
 					<header>Реклама та співпраця:</header>
 					<a href="tel:(096)4993334" class="f-tel">(096) 499 33 34</a><br/>
 					<a href="mailto:hello@sibitri.com" class="f-mail">hello@sibitri.com</a>
 					</div>
 					</div>
-    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 middle-parrent copyright ">
+    			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 middle-parrent copyright ">
     				<div class="middle-child">© 2014 ТАКСІ ТЕРНОПОЛЯ</div>
     			</div>
-    			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 middle-parrent">
+    			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 middle-parrent">    				
 					<div class="middle-child sibi-log">
 					зроблено в:
 					<h1>
@@ -167,6 +167,17 @@
 					  </a>
 					</h1>
       				
+    				</div>
+    			</div>
+    			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 middle-parrent copyright ">
+    				<div class="middle-child">
+    					Движок, админ. панель:<br />
+    					<a href="http://tretyakovpavel.ru" title="">Третьяков Павел</a>
+						<h1>
+							<a href="http://tretyakovpavel.ru" title="">
+								<img alt="Третьяков Павел" src="img/gerb.jpg" height="70">
+							</a>
+						</h1>							
     				</div>
     			</div>
     		</div>
