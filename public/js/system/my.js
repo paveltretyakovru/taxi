@@ -77,9 +77,9 @@ $(".cs-options li").bind('click' , function(e){
 	// Выводим дополнительную информацию такси
 	for (var i = 0; i < taxi['addinfo'].length; i++) {
 		if (i === 0) {
-			accordian.append('<section class="acc-content is-active"><h3>'+taxi['addinfo'][i]['title']+':</h3><p>'+taxi['addinfo'][i]['description']+'</p><span id="ac-price-2">'+taxi['addinfo'][i]['price']+' грн</span></section>');
+			accordian.append('<section class="acc-content is-active"><h3>'+taxi['addinfo'][i]['title']+':</h3><p>'+taxi['addinfo'][i]['description']+'</p><span id="ac-price-2">'+taxi['addinfo'][i]['price']+'</span></section>');
 		}else{
-			accordian.append('<section class="acc-content"><h3>'+taxi['addinfo'][i]['title']+':</h3><p>'+taxi['addinfo'][i]['description']+'</p><span id="ac-price-2">'+taxi['addinfo'][i]['price']+' грн</span></section>');
+			accordian.append('<section class="acc-content"><h3>'+taxi['addinfo'][i]['title']+':</h3><p>'+taxi['addinfo'][i]['description']+'</p><span id="ac-price-2">'+taxi['addinfo'][i]['price']+'</span></section>');
 		};		
 	};
 

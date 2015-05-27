@@ -43,6 +43,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{ url('auth/logout') }}">Выход</a></li>
+        <li><a href="{{ url('/') }}">На сайт</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
